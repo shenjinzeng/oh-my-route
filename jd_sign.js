@@ -60,10 +60,17 @@ function sendNotificationIfNeed() {
   // 去除末尾的换行
   let SCKEY = push_key.replace(/[\r\n]/g,"")
 
-  const options ={
-    uri:  `https://sc.ftqq.com/${SCKEY}.send`,
-    form: { text, desp },
-    json: true,
+  // const options ={
+  //   uri:  `https://sc.ftqq.com/${SCKEY}.send`,
+  //   form: { text, desp },
+  //   json: true,
+  //   method: 'POST'
+  // }
+
+    // 替换原POST请求部分
+  const options = {
+    uri: `https://sctapi.ftqq.com/${push_key}.send`,
+    form: { title: text, desp },
     method: 'POST'
   }
 
